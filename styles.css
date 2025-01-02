@@ -1,0 +1,4 @@
+img[src="theater_stage.jpg"] {
+    -webkit-filter: blur(10px);
+    filter: blur(3px);
+}
