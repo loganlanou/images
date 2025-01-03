@@ -1,9 +1,0 @@
-
-.dino {
-    display: block; /* Ensures shadow doesn't overlap inline elements */
-    margin: 20px auto; /* Centers the div */
-    max-width: 100%; /* Ensures responsiveness */
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5); /* Shadow */
-    filter: grayscale(50%) sepia(20%) hue-rotate(90deg) saturate(150%); /* Color adjustments */
-    border-radius: 10px; /* Optional: Rounded corners */
-}

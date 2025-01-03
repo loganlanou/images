@@ -1,11 +1,59 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Home</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Styled Dinosaur</title>
+  <style>
+    .dino {
+    filter: hue-rotate(90deg) saturate(130%) drop-shadow(15px -3px 10px rgba(0, 0, 0, 0001));
+    }
+  .butterfly  {
+        border-radius:90px 0px 90px 0px / 90px 0px 90px 0px;
+    height: 200px;
+    filter:invert(100%)  opacity(70%);
+    }
+    .penguins {
+      border-radius: 50%;
+      border: 2px solid black;
+      height: 200px;
+      filter: sepia(60%);
+    }
+    .seagull {
+      height: 200px;
+    background: linear-gradient(to bottom right, rgb(124, 114, 217), white);
+    }
+    .football_field {
+      height: 200px;
+      filter: grayscale(100%);
+      border: 20px solid #000;
+border-image: url(tic-tac-toe.png) 27 round;
+border-image-slice: 27;
+    }
+    .theatre_stage_text {
+        height: 100px; /* Adjust as needed */
+      color: white; /* Text color */
+      font-size: 2rem; /* Adjust as needed */
+      text-align: center; /* Aligns multiple lines of text */
+      z-index: 2; /* Ensures text stays above the background */
+      font-family: Arial, sans-serif; /* Font style */
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Optional: Adds shadow to text */
+      display: grid;
+  place-items: center; /* Centers content both vertically and horizontally */
+  width: 50%;
+  height: 30vh;
+  background: url('theater_stage.jpg') center/cover no-repeat;
+    }
+  </style>
 </head>
 <body>
-   
-        <div class="dino">
-            <img src="dinosaur.png">
-        </div>
+  <img src="dinosaur.png" alt="Blue Dinosaur" class="dino">
+  <img src="butterfly.jpg" alt="butterfly" class="butterfly">
+  <img src="penguins.jpg" alt="penguins" class="penguins">
+  <img src="seagull.png" alt="seagull" class="seagull">
+ <img src="tic-tac-toe.png" alt="tic-tac-toe" class="tic-tac-to">
+  <img src="football_field.jpg" alt="football_field" class="football_field">
+<img src="theater_stage.jpg" alt="theater_stage" class="theatre_stage" style="display: none;">
+  <div class="theatre_stage_text">Presenting</div>
+</body>
 </html>
