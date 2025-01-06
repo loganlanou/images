@@ -1,59 +1,153 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Styled Dinosaur</title>
-  <style>
-    .dino {
-    filter: hue-rotate(90deg) saturate(130%) drop-shadow(15px -3px 10px rgba(0, 0, 0, 0001));
-    }
-  .butterfly  {
-        border-radius:90px 0px 90px 0px / 90px 0px 90px 0px;
-    height: 200px;
-    filter:invert(100%)  opacity(70%);
-    }
-    .penguins {
-      border-radius: 50%;
-      border: 2px solid black;
-      height: 200px;
-      filter: sepia(60%);
-    }
-    .seagull {
-      height: 200px;
-    background: linear-gradient(to bottom right, rgb(124, 114, 217), white);
-    }
-    .football_field {
-      height: 200px;
-      filter: grayscale(100%);
-      border: 20px solid #000;
-border-image: url(tic-tac-toe.png) 27 round;
-border-image-slice: 27;
-    }
-    .theatre_stage_text {
-        height: 100px; /* Adjust as needed */
-      color: white; /* Text color */
-      font-size: 2rem; /* Adjust as needed */
-      text-align: center; /* Aligns multiple lines of text */
-      z-index: 2; /* Ensures text stays above the background */
-      font-family: Arial, sans-serif; /* Font style */
-      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Optional: Adds shadow to text */
-      display: grid;
-  place-items: center; /* Centers content both vertically and horizontally */
-  width: 50%;
-  height: 30vh;
-  background: url('theater_stage.jpg') center/cover no-repeat;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Dinosaur</title>
+    <style>
+        .dino {
+            filter: hue-rotate(90deg) saturate(130%) drop-shadow(15px -3px 10px rgba(0, 0, 0, 0001));
+        }
+
+        .butterfly {
+            border-radius: 90px 0px 90px 0px / 90px 0px 90px 0px;
+            height: 200px;
+            filter: invert(100%) opacity(70%);
+        }
+
+        .penguins {
+            border-radius: 50%;
+            border: 2px solid black;
+            height: 200px;
+            filter: sepia(60%);
+        }
+
+        .seagull {
+            height: 200px;
+            background: linear-gradient(to bottom right, rgb(124, 114, 217), white);
+        }
+
+        .football-container {
+            display: grid;
+            grid-template-rows: repeat(6, 1fr);
+            grid-template-columns: repeat(10, 1fr);
+            width: 500px;
+            height: 300px;
+            position: relative;
+        }
+
+        .border-cell {
+            background: url('tic-tac-toe.png') no-repeat;
+            background-size: 300% 300%;
+        }
+
+        .corner-x {
+            background-position: 0% 0%;
+        }
+
+        .side-o {
+            background-position: 50% 0%;
+        }
+
+        .football-field {
+            grid-column: 2 / span 8;
+            grid-row: 2 / span 4;
+            background: url('football_field.jpg') center/cover no-repeat;
+            z-index: 1;
+        }
+
+        .theatre_stage_container {
+            position: relative;
+            width: 100%;
+            height: 90vh;
+            overflow: hidden;
+        }
+
+        .theatre_stage_container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 60%;
+            height: 50%;
+            background: url('theater_stage.jpg') center/cover no-repeat;
+            filter: blur(3px);
+            z-index: 1;
+        }
+
+        .theatre_stage_text {
+            position: absolute;
+            top: 20%;
+            left: 30%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            color: white;
+            font-size: 3rem;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .theatre_stage {
+            display: none;
+        }
+    </style>
 </head>
+
 <body>
-  <img src="dinosaur.png" alt="Blue Dinosaur" class="dino">
-  <img src="butterfly.jpg" alt="butterfly" class="butterfly">
-  <img src="penguins.jpg" alt="penguins" class="penguins">
-  <img src="seagull.png" alt="seagull" class="seagull">
- <img src="tic-tac-toe.png" alt="tic-tac-toe" class="tic-tac-to">
-  <img src="football_field.jpg" alt="football_field" class="football_field">
-<img src="theater_stage.jpg" alt="theater_stage" class="theatre_stage" style="display: none;">
-  <div class="theatre_stage_text">Presenting</div>
+    <div class="theatre_stage_container">
+        <img src="theater_stage.jpg" alt="theater_stage" class="theatre_stage">
+        <div class="theatre_stage_text">Presenting</div>
+    </div>
+    <div><img src="dinosaur.png" alt="Blue Dinosaur" class="dino"></div>
+    <img src="butterfly.jpg" alt="butterfly" class="butterfly">
+    <img src="penguins.jpg" alt="penguins" class="penguins">
+    <img src="seagull.png" alt="seagull" class="seagull">
+    <div class="football-container">
+
+        <div class="border-cell corner-x"></div>
+        <div class="border-cell side-o"></div>
+        <div class="border-cell side-o"></div>
+        <div class="border-cell side-o"></div>
+        <div class="border-cell side-o"></div>
+        <div class="border-cell side-o"></div>
+        <div class="border-cell side-o"></div>
+        <div class="border-cell side-o"></div>
+        <div class="border-cell side-o"></div>
+        <div class="border-cell corner-x"></div>
+
+
+        <div class="border-cell side-o"></div>
+        <div class="football-field"></div>
+        <div class="border-cell side-o"></div>
+
+        <div class="border-cell side-o"></div>
+        <div class="football-field"></div>
+        <div class="border-cell side-o"></div>
+
+        <div class="border-cell side-o"></div>
+        <div class="football-field"></div>
+        <div class="border-cell side-o"></div>
+
+        <div class="border-cell side-o"></div>
+        <div class="football-field"></div>
+        <div class="border-cell side-o"></div>
+
+
+        <div class="border-cell corner-x"></div>
+        <div class="border-cell side-o"></div>
+        <div class="border-cell side-o"></div>
+        <div class="border-cell side-o"></div>
+        <div class="border-cell side-o"></div>
+        <div class="border-cell side-o"></div>
+        <div class="border-cell side-o"></div>
+        <div class="border-cell side-o"></div>
+        <div class="border-cell side-o"></div>
+        <div class="border-cell corner-x"></div>
+    </div>
 </body>
+
 </html>
